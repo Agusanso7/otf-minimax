@@ -1,7 +1,7 @@
-//#pragma GCC optimize("Ofast")
-//#pragma comment(linker, "/STACK: 20000000")
-//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
-//#define _CRT_SECURE_NO_WARNINGS
+#pragma GCC optimize("Ofast")
+#pragma comment(linker, "/STACK: 20000000")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+#define _CRT_SECURE_NO_WARNINGS
 #include <algorithm>
 #include <array>
 #include <cassert>
@@ -247,5 +247,11 @@ int main() {
   real    2m20,018s
   user    2m6,938s
   sys     0m13,019s
+
+  (Ofast)
+  real    1m45,177s
+  user    1m31,348s
+  sys     0m12,996s
+
 
  */
