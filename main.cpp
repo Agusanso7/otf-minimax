@@ -30,14 +30,14 @@ enum class GameState {
     IN_PROGRESS
 };
 
-# define PASS_ACTION "PASS_ACTION"
+const string PASS_ACTION = "PASS_ACTION";
 
 class miniMaxTreeSearch {
 
 public:
 
-  map<string,vector<int>> visited_node_time; // todo: use hashes?
-  map<string,set<string>> node_action;
+  map<int,vector<int>> visited_node_time; // using hashes
+  map<int,set<string>> node_action;
   vector<string> marked_actions;
   vector< vector<vector< pair<vector<string>, vector<string>> >> > automatas; // each automata is "from->to: <{action_specific_contr},{action_specific_non_contr}>"
 
@@ -47,30 +47,36 @@ public:
 
   void solve() { // iterative deepening - todo: transposition tables
     for(int depth=0;depth<=50;depth++) {
-      cerr<<"Analyzing depth "<<depth<<endl;
+      cerr<<"Analyzing depth "<<depth<<" ..."<<endl;
+      vector< vector<vector< pair<vector<string>, vector<string>> >> > automatas_copy = automatas;
+      for(auto&automata:automatas_copy) {
+        automatas = {automata};
+        vector<int> automata_indexes; for(auto&_:automatas) automata_indexes.push_back(0);
+        int minimax_search = compute_minimax_search(automata_indexes, false, depth, INT_MIN, INT_MAX, false, 1);
+        if (minimax_search==1) {cerr<<"Minimizing (aka uncontrollable) player score (solved with 1 automata): "<<minimax_search<<endl; exit(0);}
+      }
+      automatas = automatas_copy;
       vector<int> automata_indexes; for(auto&_:automatas) automata_indexes.push_back(0);
       int minimax_search = compute_minimax_search(automata_indexes, false, depth, INT_MIN, INT_MAX, false, 1);
-      if(abs(minimax_search) == 1) {
-        cerr<<"Minimizing (aka uncontrollable) player optimal score: "<<minimax_search<<endl;
-        break;
-      }
-      cerr<<"Non conclusive result ..."<<endl;
+      if(abs(minimax_search) == 1) { cerr<<"Minimizing (aka uncontrollable) player optimal score: "<<minimax_search<<endl; exit(0);}
     }
+    cerr<<"Non conclusive result ..."<<endl;
   }
 
   int compute_minimax_search(vector<int>& automata_indexes, bool marked, int depth, int alpha, int beta, bool isMaximizingPlayer, int time) {
 
     if(depth<0) return 0;
 
-    string string_node = node_to_string(automata_indexes, marked);
+    //string string_node = node_to_string(automata_indexes, marked);
+    int node_hash = node_to_hash(automata_indexes, marked);
     set<string> _actions = get_player_actions(automata_indexes, isMaximizingPlayer);
     set<string> _all_actions = get_player_actions(automata_indexes, not isMaximizingPlayer);
-    for(auto&made_action:node_action[ string_node ])
+    for(auto&made_action:node_action[ node_hash ])
       _actions.erase(made_action), _all_actions.erase(made_action);
     _all_actions.insert(_actions.begin(), _actions.end());
     if(_all_actions.empty()) return -1; // uncontrollable wins if no one can move
 
-    GameState current_game_state = getGameState(string_node, marked);
+    GameState current_game_state = getGameState(node_hash, marked);
     if (current_game_state == GameState::MAXIMIZING_WON) return 1; // TODO play with "10 - depth" as score to favor faster wins or slower losses
     else if (current_game_state == GameState::MINIMIZING_WON) return -1;
 
@@ -79,18 +85,18 @@ public:
     random_shuffle(actions.begin(),actions.end());
     if (not isMaximizingPlayer) { // uncontrollable player - minimizing
       int best_score = INT_MAX;
-      if (node_action[ string_node ].count(PASS_ACTION) == 0)
+      if (node_action[ node_hash ].count(PASS_ACTION) == 0)
         actions.push_back(PASS_ACTION); // uncontrollable player can also do nothing and pass
       random_shuffle(actions.begin(),actions.end());
       for(auto&action:actions) {
         // do action
-        node_action[ string_node ].insert( action );
+        node_action[ node_hash ].insert( action );
         vector<int> next_automata_indexes = get_automata_indexes_from_action(automata_indexes, action, isMaximizingPlayer);
         bool next_marked = is_marked_action(action, marked_actions);
         if(action==PASS_ACTION) next_marked = marked; // not moving from node
         bool isMaximizingPlayerNextTurn = action==PASS_ACTION ? true : false;
         if(action != PASS_ACTION) {
-          visited_node_time[ string_node ].push_back( time );
+          visited_node_time[ node_hash ].push_back( time );
           if(marked) marked_visits.push_back(time);
         }
         // recursive call
@@ -99,10 +105,10 @@ public:
         if(child_score<best_score) best_action = action;
         best_score = min(child_score, best_score); // move to worse best move from opponent (wants to maximize) | move to best move from me (I want to minimize)
         // undo action
-        node_action[ string_node ].erase( action );
+        node_action[ node_hash ].erase( action );
         if(action != PASS_ACTION) {
-          visited_node_time[ string_node ].pop_back();
-          if(visited_node_time[string_node].empty()) visited_node_time.erase(string_node);
+          visited_node_time[ node_hash ].pop_back();
+          if(visited_node_time[node_hash].empty()) visited_node_time.erase(node_hash);
           if(marked) marked_visits.pop_back();
         }
 
@@ -114,12 +120,13 @@ public:
       return best_score;
     } else { // controllable player - maximizing
       int best_score = INT_MIN;
+      if(actions.empty()) actions.push_back(PASS_ACTION + "-MAX");
       for(auto&action:actions) {
         // do action
-        node_action[ string_node ].insert( action );
+        node_action[ node_hash ].insert( action );
         vector<int> next_automata_indexes = get_automata_indexes_from_action(automata_indexes, action, isMaximizingPlayer);
         bool next_marked = is_marked_action(action, marked_actions);
-        visited_node_time[ string_node ].push_back( time );
+        visited_node_time[ node_hash ].push_back( time );
         if(marked) marked_visits.push_back(time);
         // recursive call
         int next_depth = actions.size() == 1 ? depth : depth - 1;
@@ -127,9 +134,9 @@ public:
         if(child_score>best_score) best_action = action;
         best_score = max(child_score, best_score);
         // undo action
-        node_action[ string_node ].erase( action );
-        visited_node_time[ string_node ].pop_back();
-        if(visited_node_time[string_node].empty()) visited_node_time.erase(string_node);
+        node_action[ node_hash ].erase( action );
+        visited_node_time[ node_hash ].pop_back();
+        if(visited_node_time[node_hash].empty()) visited_node_time.erase(node_hash);
         if(marked) marked_visits.pop_back();
 
         if (beta<=best_score) break;
@@ -165,13 +172,28 @@ private:
     return ans;
   }
 
-  GameState getGameState(string& node, bool marked) {
-    bool already_visited = visited_node_time.count(node);
+  int node_to_hash(vector<int> &automata_indexes, bool marked_state) {
+    const int mod = 12230441;
+    int base = 107;
+    int actual = 1;
+    int ans = 0;
+    for(auto&it:automata_indexes) {
+      ans += it * actual;
+      ans %= mod;
+      actual = (actual * base) % mod;
+    }
+    if(marked_state) ans += 1 * actual, ans %= mod;
+    return ans;
+  }
+
+  GameState getGameState(int& node_hash, bool marked) {
+    bool already_visited = visited_node_time.count(node_hash);
     if (not already_visited) return GameState::IN_PROGRESS;
     // node already visited:
+    assert(visited_node_time[node_hash].size());
     if (marked) return GameState::MAXIMIZING_WON; // two passes on the same marked node
     // node already visited and not marked:
-    int node_time = visited_node_time[node].back();
+    int node_time = visited_node_time[node_hash].back();
     if ( marked_visits.back() > node_time ) { // circuit containing one marked node
       return GameState::MAXIMIZING_WON;
     } else return GameState::IN_PROGRESS; // circuit of all non-marked nodes -->
