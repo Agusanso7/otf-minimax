@@ -1,0 +1,38 @@
+#Controllable
+1
+take
+#Marking
+1
+eat.all
+#Machines
+3
+Plant.Philosopher(0)
+#States
+10
+#Edges
+10
+0 1 think.0
+1 2 take.0.0
+2 3 step.0
+3 4 step.0
+4 5 step.0
+5 6 step.0
+6 7 take.0.0
+7 8 eat.0
+8 9 release.0.0
+9 0 release.0.0
+Plant.Fork(0)
+#States
+2
+#Edges
+2
+0 1 take.0.0
+1 0 release.0.0
+Plant.Monitor(0)
+#States
+2
+#Edges
+3
+0 1 eat.0
+1 1 eat.0
+1 0 eat.all

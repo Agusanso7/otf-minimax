@@ -1,0 +1,41 @@
+#Controllable
+1
+get
+#Marking
+2
+accept
+reject
+#Machines
+3
+Plant.Machine(0)
+#States
+3
+#Edges
+4
+0 1 get.0
+1 2 get.0
+1 0 put.1
+2 1 put.1
+Plant.Buffer(1)
+#States
+3
+#Edges
+9
+0 1 return.1
+0 -1 get.1
+0 1 put.1
+1 2 return.1
+1 0 get.1
+1 2 put.1
+2 -1 return.1
+2 1 get.1
+2 -1 put.1
+Plant.TU
+#States
+3
+#Edges
+4
+0 1 get.1
+1 2 return.1
+1 0 accept
+2 0 reject

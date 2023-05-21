@@ -1,0 +1,102 @@
+#Controllable
+4
+cancel
+purchase
+agency.succ
+agency.fail
+#Marking
+2
+agency.succ
+agency.fail
+#Machines
+4
+Plant.Agency
+#States
+2
+#Edges
+4
+0 1 agency.request
+1 1 query.0
+1 0 agency.fail
+1 0 agency.succ
+Plant.AgencyMonitor
+#States
+3
+#Edges
+14
+0 2 query.fail.0
+0 1 uncommitted.0
+0 -1 agency.fail
+0 0 agency.succ
+1 2 query.fail.0
+1 2 purchase.fail.0
+1 2 uncommitted.0
+1 -1 agency.fail
+1 0 agency.succ
+2 2 query.fail.0
+2 2 purchase.fail.0
+2 2 uncommitted.0
+2 0 agency.fail
+2 0 agency.succ
+Plant.Service(0)
+#States
+20
+#Edges
+36
+0 1 query.0
+0 0 agency.fail
+0 0 agency.succ
+1 3 available.0
+1 2 unavailable.0
+2 0 query.fail.0
+3 19 steps.0.1
+3 18 steps.0.2
+3 17 steps.0.3
+3 16 steps.0.4
+3 15 steps.0.0
+3 4 steps.0.5
+4 5 query.succ.0
+5 6 select.0
+6 7 select.0
+7 8 select.0
+8 9 select.0
+9 10 select.0
+10 13 committed.0
+10 11 uncommitted.0
+11 0 cancel.0
+11 0 agency.fail
+11 12 purchase.0
+11 0 agency.succ
+12 0 purchase.fail.0
+12 0 purchase.succ.0
+13 0 cancel.0
+13 0 agency.fail
+13 14 purchase.0
+13 0 agency.succ
+14 0 purchase.succ.0
+15 10 query.succ.0
+16 6 query.succ.0
+17 7 query.succ.0
+18 8 query.succ.0
+19 9 query.succ.0
+Plant.ServiceMonitor(0)
+#States
+5
+#Edges
+16
+0 1 query.0
+0 0 agency.fail
+0 -1 agency.succ
+1 3 query.fail.0
+1 2 query.succ.0
+1 0 agency.fail
+1 -1 agency.succ
+2 3 purchase.fail.0
+2 4 purchase.succ.0
+2 3 cancel.0
+2 0 agency.fail
+2 -1 agency.succ
+3 0 agency.fail
+3 -1 agency.succ
+4 0 agency.fail
+4 0 agency.succ

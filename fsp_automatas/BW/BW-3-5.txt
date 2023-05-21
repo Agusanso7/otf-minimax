@@ -1,0 +1,164 @@
+#Controllable
+3
+assign
+refuse
+approve
+#Marking
+2
+refuse
+approve
+#Machines
+4
+Plant.Document
+#States
+5
+#Edges
+40
+0 2 accept.2
+0 0 refuse
+0 1 reject.2.5
+0 2 accept.0
+0 2 accept.1
+0 1 reject.0.5
+0 -1 approve
+0 1 reject.1.5
+1 1 accept.2
+1 0 refuse
+1 1 reject.2.5
+1 1 accept.0
+1 1 accept.1
+1 1 reject.0.5
+1 -1 approve
+1 1 reject.1.5
+2 3 accept.2
+2 -1 refuse
+2 1 reject.2.5
+2 3 accept.0
+2 3 accept.1
+2 1 reject.0.5
+2 -1 approve
+2 1 reject.1.5
+3 4 accept.2
+3 -1 refuse
+3 1 reject.2.5
+3 4 accept.0
+3 4 accept.1
+3 1 reject.0.5
+3 -1 approve
+3 1 reject.1.5
+4 4 accept.2
+4 -1 refuse
+4 4 reject.2.5
+4 4 accept.0
+4 4 accept.1
+4 4 reject.0.5
+4 0 approve
+4 4 reject.1.5
+Plant.Crew(0)
+#States
+12
+#Edges
+31
+0 -1 refuse
+0 1 assign.0
+0 -1 approve
+1 11 accept.0
+1 2 reject.0.1
+2 0 refuse
+2 3 assign.0
+2 -1 approve
+3 11 accept.0
+3 4 reject.0.2
+4 0 refuse
+4 5 assign.0
+4 -1 approve
+5 11 accept.0
+5 6 reject.0.3
+6 0 refuse
+6 7 assign.0
+6 -1 approve
+7 11 accept.0
+7 8 reject.0.4
+8 0 refuse
+8 9 assign.0
+8 -1 approve
+9 11 accept.0
+9 10 reject.0.5
+10 0 refuse
+10 -1 assign.0
+10 -1 approve
+11 0 refuse
+11 -1 assign.0
+11 0 approve
+Plant.Crew(1)
+#States
+12
+#Edges
+31
+0 -1 refuse
+0 -1 approve
+0 1 assign.1
+1 11 accept.1
+1 2 reject.1.1
+2 0 refuse
+2 -1 approve
+2 3 assign.1
+3 11 accept.1
+3 4 reject.1.2
+4 0 refuse
+4 -1 approve
+4 5 assign.1
+5 11 accept.1
+5 6 reject.1.3
+6 0 refuse
+6 -1 approve
+6 7 assign.1
+7 11 accept.1
+7 8 reject.1.4
+8 0 refuse
+8 -1 approve
+8 9 assign.1
+9 11 accept.1
+9 10 reject.1.5
+10 0 refuse
+10 -1 approve
+10 -1 assign.1
+11 0 refuse
+11 0 approve
+11 -1 assign.1
+Plant.Crew(2)
+#States
+12
+#Edges
+31
+0 -1 refuse
+0 -1 approve
+0 1 assign.2
+1 11 accept.2
+1 2 reject.2.1
+2 0 refuse
+2 -1 approve
+2 3 assign.2
+3 11 accept.2
+3 4 reject.2.2
+4 0 refuse
+4 -1 approve
+4 5 assign.2
+5 11 accept.2
+5 6 reject.2.3
+6 0 refuse
+6 -1 approve
+6 7 assign.2
+7 11 accept.2
+7 8 reject.2.4
+8 0 refuse
+8 -1 approve
+8 9 assign.2
+9 11 accept.2
+9 10 reject.2.5
+10 0 refuse
+10 -1 approve
+10 -1 assign.2
+11 0 refuse
+11 0 approve
+11 -1 assign.2

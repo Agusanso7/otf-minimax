@@ -1,0 +1,166 @@
+#Controllable
+2
+descend
+approach
+#Marking
+1
+control.all
+#Machines
+14
+Plant.ResponseMonitor
+#States
+2
+#Edges
+25
+0 0 extendFlight.0
+0 0 descend.0.0
+0 0 descend.0.1
+0 0 descend.0.4
+0 0 descend.0.5
+0 0 descend.0.2
+0 0 descend.0.3
+0 0 descend.0.8
+0 0 descend.0.9
+0 0 descend.0.6
+0 0 descend.0.7
+0 0 approach.0
+0 0 descend.0.10
+0 1 requestLand.0
+1 0 descend.0.0
+1 0 descend.0.1
+1 0 descend.0.4
+1 0 descend.0.5
+1 0 descend.0.2
+1 0 descend.0.3
+1 0 descend.0.8
+1 0 descend.0.9
+1 0 descend.0.6
+1 0 descend.0.7
+1 0 descend.0.10
+Plant.RampMonitor
+#States
+3
+#Edges
+4
+0 1 approach.0
+1 2 approach.0
+1 0 land.0
+2 -1 land.crash
+Plant.HeightMonitor(0)
+#States
+2
+#Edges
+2
+0 1 descend.0.0
+1 0 land.0
+Plant.HeightMonitor(1)
+#States
+2
+#Edges
+3
+0 0 descend.0.0
+0 1 descend.0.1
+1 0 descend.0.0
+Plant.HeightMonitor(2)
+#States
+2
+#Edges
+3
+0 1 descend.0.2
+0 0 descend.0.1
+1 0 descend.0.1
+Plant.HeightMonitor(3)
+#States
+2
+#Edges
+3
+0 0 descend.0.2
+0 1 descend.0.3
+1 0 descend.0.2
+Plant.HeightMonitor(4)
+#States
+2
+#Edges
+3
+0 1 descend.0.4
+0 0 descend.0.3
+1 0 descend.0.3
+Plant.HeightMonitor(5)
+#States
+2
+#Edges
+3
+0 0 descend.0.4
+0 1 descend.0.5
+1 0 descend.0.4
+Plant.HeightMonitor(6)
+#States
+2
+#Edges
+3
+0 0 descend.0.5
+0 1 descend.0.6
+1 0 descend.0.5
+Plant.HeightMonitor(7)
+#States
+2
+#Edges
+3
+0 0 descend.0.6
+0 1 descend.0.7
+1 0 descend.0.6
+Plant.HeightMonitor(8)
+#States
+2
+#Edges
+3
+0 1 descend.0.8
+0 0 descend.0.7
+1 0 descend.0.7
+Plant.HeightMonitor(9)
+#States
+2
+#Edges
+3
+0 0 descend.0.8
+0 1 descend.0.9
+1 0 descend.0.8
+Plant.HeightMonitor(10)
+#States
+2
+#Edges
+3
+0 0 descend.0.9
+0 1 descend.0.10
+1 0 descend.0.9
+Plant.Airplane(0)
+#States
+15
+#Edges
+26
+0 14 extendFlight.0
+0 1 requestLand.0
+1 12 descend.0.0
+1 11 descend.0.1
+1 8 descend.0.4
+1 7 descend.0.5
+1 10 descend.0.2
+1 9 descend.0.3
+1 4 descend.0.8
+1 3 descend.0.9
+1 6 descend.0.6
+1 5 descend.0.7
+1 2 descend.0.10
+2 3 descend.0.9
+3 4 descend.0.8
+4 5 descend.0.7
+5 6 descend.0.6
+6 7 descend.0.5
+7 8 descend.0.4
+8 9 descend.0.3
+9 10 descend.0.2
+10 11 descend.0.1
+11 12 descend.0.0
+12 13 approach.0
+13 14 land.0
+14 0 control.all

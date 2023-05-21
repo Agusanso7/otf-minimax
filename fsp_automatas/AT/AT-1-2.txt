@@ -1,0 +1,58 @@
+#Controllable
+2
+descend
+approach
+#Marking
+1
+control.all
+#Machines
+5
+Plant.ResponseMonitor
+#States
+2
+#Edges
+7
+0 0 extendFlight.0
+0 0 approach.0
+0 1 requestLand.0
+0 0 descend.0.0
+0 0 descend.0.1
+1 0 descend.0.0
+1 0 descend.0.1
+Plant.RampMonitor
+#States
+3
+#Edges
+4
+0 1 approach.0
+1 2 approach.0
+1 0 land.0
+2 -1 land.crash
+Plant.HeightMonitor(0)
+#States
+2
+#Edges
+2
+0 1 descend.0.0
+1 0 land.0
+Plant.HeightMonitor(1)
+#States
+2
+#Edges
+3
+0 0 descend.0.0
+0 1 descend.0.1
+1 0 descend.0.0
+Plant.Airplane(0)
+#States
+6
+#Edges
+8
+0 5 extendFlight.0
+0 1 requestLand.0
+1 3 descend.0.0
+1 2 descend.0.1
+2 3 descend.0.0
+3 4 approach.0
+4 5 land.0
+5 0 control.all

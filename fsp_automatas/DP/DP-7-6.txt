@@ -1,0 +1,246 @@
+#Controllable
+1
+take
+#Marking
+1
+eat.all
+#Machines
+21
+Plant.Philosopher(0)
+#States
+12
+#Edges
+12
+0 1 think.0
+1 2 take.0.0
+2 3 step.0
+3 4 step.0
+4 5 step.0
+5 6 step.0
+6 7 step.0
+7 8 step.0
+8 9 take.0.1
+9 10 eat.0
+10 11 release.0.0
+11 0 release.0.1
+Plant.Fork(0)
+#States
+2
+#Edges
+4
+0 1 take.6.0
+0 1 take.0.0
+1 0 release.6.0
+1 0 release.0.0
+Plant.Monitor(0)
+#States
+2
+#Edges
+3
+0 1 eat.0
+1 1 eat.0
+1 0 eat.all
+Plant.Philosopher(1)
+#States
+12
+#Edges
+12
+0 1 think.1
+1 2 take.1.1
+2 3 step.1
+3 4 step.1
+4 5 step.1
+5 6 step.1
+6 7 step.1
+7 8 step.1
+8 9 take.1.2
+9 10 eat.1
+10 11 release.1.1
+11 0 release.1.2
+Plant.Fork(1)
+#States
+2
+#Edges
+4
+0 1 take.0.1
+0 1 take.1.1
+1 0 release.1.1
+1 0 release.0.1
+Plant.Monitor(1)
+#States
+2
+#Edges
+3
+0 1 eat.1
+1 1 eat.1
+1 0 eat.all
+Plant.Philosopher(2)
+#States
+12
+#Edges
+12
+0 1 think.2
+1 2 take.2.2
+2 3 step.2
+3 4 step.2
+4 5 step.2
+5 6 step.2
+6 7 step.2
+7 8 step.2
+8 9 take.2.3
+9 10 eat.2
+10 11 release.2.2
+11 0 release.2.3
+Plant.Fork(2)
+#States
+2
+#Edges
+4
+0 1 take.1.2
+0 1 take.2.2
+1 0 release.2.2
+1 0 release.1.2
+Plant.Monitor(2)
+#States
+2
+#Edges
+3
+0 1 eat.2
+1 1 eat.2
+1 0 eat.all
+Plant.Philosopher(3)
+#States
+12
+#Edges
+12
+0 1 think.3
+1 2 take.3.3
+2 3 step.3
+3 4 step.3
+4 5 step.3
+5 6 step.3
+6 7 step.3
+7 8 step.3
+8 9 take.3.4
+9 10 eat.3
+10 11 release.3.3
+11 0 release.3.4
+Plant.Fork(3)
+#States
+2
+#Edges
+4
+0 1 take.2.3
+0 1 take.3.3
+1 0 release.3.3
+1 0 release.2.3
+Plant.Monitor(3)
+#States
+2
+#Edges
+3
+0 1 eat.3
+1 1 eat.3
+1 0 eat.all
+Plant.Philosopher(4)
+#States
+12
+#Edges
+12
+0 1 think.4
+1 2 take.4.4
+2 3 step.4
+3 4 step.4
+4 5 step.4
+5 6 step.4
+6 7 step.4
+7 8 step.4
+8 9 take.4.5
+9 10 eat.4
+10 11 release.4.4
+11 0 release.4.5
+Plant.Fork(4)
+#States
+2
+#Edges
+4
+0 1 take.3.4
+0 1 take.4.4
+1 0 release.4.4
+1 0 release.3.4
+Plant.Monitor(4)
+#States
+2
+#Edges
+3
+0 1 eat.4
+1 1 eat.4
+1 0 eat.all
+Plant.Philosopher(5)
+#States
+12
+#Edges
+12
+0 1 think.5
+1 2 take.5.5
+2 3 step.5
+3 4 step.5
+4 5 step.5
+5 6 step.5
+6 7 step.5
+7 8 step.5
+8 9 take.5.6
+9 10 eat.5
+10 11 release.5.5
+11 0 release.5.6
+Plant.Fork(5)
+#States
+2
+#Edges
+4
+0 1 take.4.5
+0 1 take.5.5
+1 0 release.5.5
+1 0 release.4.5
+Plant.Monitor(5)
+#States
+2
+#Edges
+3
+0 1 eat.5
+1 1 eat.5
+1 0 eat.all
+Plant.Philosopher(6)
+#States
+12
+#Edges
+12
+0 1 think.6
+1 2 take.6.6
+2 3 step.6
+3 4 step.6
+4 5 step.6
+5 6 step.6
+6 7 step.6
+7 8 step.6
+8 9 take.6.0
+9 10 eat.6
+10 11 release.6.6
+11 0 release.6.0
+Plant.Fork(6)
+#States
+2
+#Edges
+4
+0 1 take.5.6
+0 1 take.6.6
+1 0 release.6.6
+1 0 release.5.6
+Plant.Monitor(6)
+#States
+2
+#Edges
+3
+0 1 eat.6
+1 1 eat.6
+1 0 eat.all

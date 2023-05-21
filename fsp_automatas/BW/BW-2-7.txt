@@ -1,0 +1,132 @@
+#Controllable
+3
+assign
+refuse
+approve
+#Marking
+2
+refuse
+approve
+#Machines
+3
+Plant.Document
+#States
+4
+#Edges
+24
+0 0 refuse
+0 3 reject.0.7
+0 1 accept.0
+0 3 reject.1.7
+0 1 accept.1
+0 -1 approve
+1 -1 refuse
+1 3 reject.0.7
+1 2 accept.0
+1 3 reject.1.7
+1 2 accept.1
+1 -1 approve
+2 -1 refuse
+2 2 reject.0.7
+2 2 accept.0
+2 2 reject.1.7
+2 2 accept.1
+2 0 approve
+3 0 refuse
+3 3 reject.0.7
+3 3 accept.0
+3 3 reject.1.7
+3 3 accept.1
+3 -1 approve
+Plant.Crew(0)
+#States
+16
+#Edges
+41
+0 -1 refuse
+0 1 assign.0
+0 -1 approve
+1 15 accept.0
+1 2 reject.0.1
+2 0 refuse
+2 3 assign.0
+2 -1 approve
+3 15 accept.0
+3 4 reject.0.2
+4 0 refuse
+4 5 assign.0
+4 -1 approve
+5 15 accept.0
+5 6 reject.0.3
+6 0 refuse
+6 7 assign.0
+6 -1 approve
+7 15 accept.0
+7 8 reject.0.4
+8 0 refuse
+8 9 assign.0
+8 -1 approve
+9 15 accept.0
+9 10 reject.0.5
+10 0 refuse
+10 11 assign.0
+10 -1 approve
+11 15 accept.0
+11 12 reject.0.6
+12 0 refuse
+12 13 assign.0
+12 -1 approve
+13 15 accept.0
+13 14 reject.0.7
+14 0 refuse
+14 -1 assign.0
+14 -1 approve
+15 0 refuse
+15 -1 assign.0
+15 0 approve
+Plant.Crew(1)
+#States
+16
+#Edges
+41
+0 -1 refuse
+0 -1 approve
+0 1 assign.1
+1 12 accept.1
+1 2 reject.1.1
+2 0 refuse
+2 -1 approve
+2 3 assign.1
+3 12 accept.1
+3 4 reject.1.2
+4 0 refuse
+4 -1 approve
+4 5 assign.1
+5 12 accept.1
+5 6 reject.1.3
+6 0 refuse
+6 -1 approve
+6 7 assign.1
+7 12 accept.1
+7 8 reject.1.4
+8 0 refuse
+8 -1 approve
+8 9 assign.1
+9 12 accept.1
+9 10 reject.1.5
+10 0 refuse
+10 -1 approve
+10 11 assign.1
+11 13 reject.1.6
+11 12 accept.1
+12 0 refuse
+12 0 approve
+12 -1 assign.1
+13 0 refuse
+13 -1 approve
+13 14 assign.1
+14 12 accept.1
+14 15 reject.1.7
+15 0 refuse
+15 -1 approve
+15 -1 assign.1

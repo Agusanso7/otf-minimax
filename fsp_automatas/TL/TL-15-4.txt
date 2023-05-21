@@ -1,0 +1,513 @@
+#Controllable
+1
+get
+#Marking
+2
+accept
+reject
+#Machines
+31
+Plant.Machine(0)
+#States
+5
+#Edges
+8
+0 1 get.0
+1 2 get.0
+1 0 put.1
+2 3 get.0
+2 1 put.1
+3 4 get.0
+3 2 put.1
+4 3 put.1
+Plant.Buffer(1)
+#States
+5
+#Edges
+15
+0 1 return.1
+0 -1 get.1
+0 1 put.1
+1 2 return.1
+1 0 get.1
+1 2 put.1
+2 3 return.1
+2 1 get.1
+2 3 put.1
+3 4 return.1
+3 2 get.1
+3 4 put.1
+4 -1 return.1
+4 3 get.1
+4 -1 put.1
+Plant.Machine(1)
+#States
+5
+#Edges
+8
+0 1 get.1
+1 2 get.1
+1 0 put.2
+2 3 get.1
+2 1 put.2
+3 4 get.1
+3 2 put.2
+4 3 put.2
+Plant.Buffer(2)
+#States
+5
+#Edges
+15
+0 -1 get.2
+0 1 put.2
+0 1 return.2
+1 0 get.2
+1 2 put.2
+1 2 return.2
+2 1 get.2
+2 3 put.2
+2 3 return.2
+3 2 get.2
+3 4 put.2
+3 4 return.2
+4 3 get.2
+4 -1 put.2
+4 -1 return.2
+Plant.Machine(2)
+#States
+5
+#Edges
+8
+0 1 get.2
+1 2 get.2
+1 0 put.3
+2 3 get.2
+2 1 put.3
+3 4 get.2
+3 2 put.3
+4 3 put.3
+Plant.Buffer(3)
+#States
+5
+#Edges
+15
+0 -1 get.3
+0 1 put.3
+0 1 return.3
+1 0 get.3
+1 2 put.3
+1 2 return.3
+2 1 get.3
+2 3 put.3
+2 3 return.3
+3 2 get.3
+3 4 put.3
+3 4 return.3
+4 3 get.3
+4 -1 put.3
+4 -1 return.3
+Plant.Machine(3)
+#States
+5
+#Edges
+8
+0 1 get.3
+1 2 get.3
+1 0 put.4
+2 3 get.3
+2 1 put.4
+3 4 get.3
+3 2 put.4
+4 3 put.4
+Plant.Buffer(4)
+#States
+5
+#Edges
+15
+0 1 put.4
+0 1 return.4
+0 -1 get.4
+1 2 put.4
+1 2 return.4
+1 0 get.4
+2 3 put.4
+2 3 return.4
+2 1 get.4
+3 4 put.4
+3 4 return.4
+3 2 get.4
+4 -1 put.4
+4 -1 return.4
+4 3 get.4
+Plant.Machine(4)
+#States
+5
+#Edges
+8
+0 1 get.4
+1 2 get.4
+1 0 put.5
+2 3 get.4
+2 1 put.5
+3 4 get.4
+3 2 put.5
+4 3 put.5
+Plant.Buffer(5)
+#States
+5
+#Edges
+15
+0 1 return.5
+0 -1 get.5
+0 1 put.5
+1 2 return.5
+1 0 get.5
+1 2 put.5
+2 3 return.5
+2 1 get.5
+2 3 put.5
+3 4 return.5
+3 2 get.5
+3 4 put.5
+4 -1 return.5
+4 3 get.5
+4 -1 put.5
+Plant.Machine(5)
+#States
+5
+#Edges
+8
+0 1 get.5
+1 2 get.5
+1 0 put.6
+2 3 get.5
+2 1 put.6
+3 4 get.5
+3 2 put.6
+4 3 put.6
+Plant.Buffer(6)
+#States
+5
+#Edges
+15
+0 -1 get.6
+0 1 put.6
+0 1 return.6
+1 0 get.6
+1 2 put.6
+1 2 return.6
+2 1 get.6
+2 3 put.6
+2 3 return.6
+3 2 get.6
+3 4 put.6
+3 4 return.6
+4 3 get.6
+4 -1 put.6
+4 -1 return.6
+Plant.Machine(6)
+#States
+5
+#Edges
+8
+0 1 get.6
+1 2 get.6
+1 0 put.7
+2 3 get.6
+2 1 put.7
+3 4 get.6
+3 2 put.7
+4 3 put.7
+Plant.Buffer(7)
+#States
+5
+#Edges
+15
+0 -1 get.7
+0 1 put.7
+0 1 return.7
+1 0 get.7
+1 2 put.7
+1 2 return.7
+2 1 get.7
+2 3 put.7
+2 3 return.7
+3 2 get.7
+3 4 put.7
+3 4 return.7
+4 3 get.7
+4 -1 put.7
+4 -1 return.7
+Plant.Machine(7)
+#States
+5
+#Edges
+8
+0 1 get.7
+1 2 get.7
+1 0 put.8
+2 3 get.7
+2 1 put.8
+3 4 get.7
+3 2 put.8
+4 3 put.8
+Plant.Buffer(8)
+#States
+5
+#Edges
+15
+0 1 put.8
+0 1 return.8
+0 -1 get.8
+1 2 put.8
+1 2 return.8
+1 0 get.8
+2 3 put.8
+2 3 return.8
+2 1 get.8
+3 4 put.8
+3 4 return.8
+3 2 get.8
+4 -1 put.8
+4 -1 return.8
+4 3 get.8
+Plant.Machine(8)
+#States
+5
+#Edges
+8
+0 1 get.8
+1 2 get.8
+1 0 put.9
+2 3 get.8
+2 1 put.9
+3 4 get.8
+3 2 put.9
+4 3 put.9
+Plant.Buffer(9)
+#States
+5
+#Edges
+15
+0 1 return.9
+0 -1 get.9
+0 1 put.9
+1 2 return.9
+1 0 get.9
+1 2 put.9
+2 3 return.9
+2 1 get.9
+2 3 put.9
+3 4 return.9
+3 2 get.9
+3 4 put.9
+4 -1 return.9
+4 3 get.9
+4 -1 put.9
+Plant.Machine(9)
+#States
+5
+#Edges
+8
+0 1 get.9
+1 2 get.9
+1 0 put.10
+2 3 get.9
+2 1 put.10
+3 4 get.9
+3 2 put.10
+4 3 put.10
+Plant.Buffer(10)
+#States
+5
+#Edges
+15
+0 -1 get.10
+0 1 put.10
+0 1 return.10
+1 0 get.10
+1 2 put.10
+1 2 return.10
+2 1 get.10
+2 3 put.10
+2 3 return.10
+3 2 get.10
+3 4 put.10
+3 4 return.10
+4 3 get.10
+4 -1 put.10
+4 -1 return.10
+Plant.Machine(10)
+#States
+5
+#Edges
+8
+0 1 get.10
+1 2 get.10
+1 0 put.11
+2 3 get.10
+2 1 put.11
+3 4 get.10
+3 2 put.11
+4 3 put.11
+Plant.Buffer(11)
+#States
+5
+#Edges
+15
+0 1 put.11
+0 1 return.11
+0 -1 get.11
+1 2 put.11
+1 2 return.11
+1 0 get.11
+2 3 put.11
+2 3 return.11
+2 1 get.11
+3 4 put.11
+3 4 return.11
+3 2 get.11
+4 -1 put.11
+4 -1 return.11
+4 3 get.11
+Plant.Machine(11)
+#States
+5
+#Edges
+8
+0 1 get.11
+1 0 put.12
+1 2 get.11
+2 1 put.12
+2 3 get.11
+3 2 put.12
+3 4 get.11
+4 3 put.12
+Plant.Buffer(12)
+#States
+5
+#Edges
+15
+0 1 put.12
+0 1 return.12
+0 -1 get.12
+1 2 put.12
+1 2 return.12
+1 0 get.12
+2 3 put.12
+2 3 return.12
+2 1 get.12
+3 4 put.12
+3 4 return.12
+3 2 get.12
+4 -1 put.12
+4 -1 return.12
+4 3 get.12
+Plant.Machine(12)
+#States
+5
+#Edges
+8
+0 1 get.12
+1 0 put.13
+1 2 get.12
+2 1 put.13
+2 3 get.12
+3 2 put.13
+3 4 get.12
+4 3 put.13
+Plant.Buffer(13)
+#States
+5
+#Edges
+15
+0 1 return.13
+0 1 put.13
+0 -1 get.13
+1 2 return.13
+1 2 put.13
+1 0 get.13
+2 3 return.13
+2 3 put.13
+2 1 get.13
+3 4 return.13
+3 4 put.13
+3 2 get.13
+4 -1 return.13
+4 -1 put.13
+4 3 get.13
+Plant.Machine(13)
+#States
+5
+#Edges
+8
+0 1 get.13
+1 0 put.14
+1 2 get.13
+2 1 put.14
+2 3 get.13
+3 2 put.14
+3 4 get.13
+4 3 put.14
+Plant.Buffer(14)
+#States
+5
+#Edges
+15
+0 1 return.14
+0 1 put.14
+0 -1 get.14
+1 2 return.14
+1 2 put.14
+1 0 get.14
+2 3 return.14
+2 3 put.14
+2 1 get.14
+3 4 return.14
+3 4 put.14
+3 2 get.14
+4 -1 return.14
+4 -1 put.14
+4 3 get.14
+Plant.Machine(14)
+#States
+5
+#Edges
+8
+0 1 get.14
+1 0 put.15
+1 2 get.14
+2 1 put.15
+2 3 get.14
+3 2 put.15
+3 4 get.14
+4 3 put.15
+Plant.Buffer(15)
+#States
+5
+#Edges
+15
+0 1 return.15
+0 1 put.15
+0 -1 get.15
+1 2 return.15
+1 2 put.15
+1 0 get.15
+2 3 return.15
+2 3 put.15
+2 1 get.15
+3 4 return.15
+3 4 put.15
+3 2 get.15
+4 -1 return.15
+4 -1 put.15
+4 3 get.15
+Plant.TU
+#States
+3
+#Edges
+4
+0 1 get.15
+1 2 return.1
+1 0 accept
+2 0 reject
