@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #benchmarks=("AT" "BW" "CM" "DP" "TA" "TL")
-benchmarks=("AT" "BW" "CM" "DP" "TA")
+#benchmarks=("AT" "BW" "CM" "DP" "TA")
+benchmarks=("CM")
 for n in {1..15}; do
   for k in {1..15}; do
     for p in "${benchmarks[@]}"; do

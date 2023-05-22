@@ -1,0 +1,20 @@
+#Controllable
+1
+c
+#Marking
+1
+c
+#Machines
+1
+Plant.MyGraph
+#States
+4
+#Edges
+5
+0 3 c
+0 2 uprima
+2 0 u
+1 2 u
+0 1 u
+3 3 c
+
