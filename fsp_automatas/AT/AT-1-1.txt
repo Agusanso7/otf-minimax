@@ -44,3 +44,30 @@ Plant.Airplane(0)
 2 3 approach.0
 3 4 land.0
 4 0 control.all
+
+  controllable = {descend[Plane][Height], approach[Plane]}
+  marking = {control.all}
+
+Analyzing depth 2 ...
+actions uncontrolled: extendFlight.0#PASS_ACTION#requestLand.0#
+best score: 0, action: requestLand.0 for state 0-
+actions uncontrolled: requestLand.0#PASS_ACTION#extendFlight.0#
+best score: 0, action: requestLand.0 for state 0-
+actions controlled: descend.0.0#approach.0#
+best score: 0, action: approach.0 ,for state 0-
+actions uncontrolled: PASS_ACTION#
+best score: 0, action: PASS_ACTION for state 1-
+actions uncontrolled: requestLand.0#
+best score: 0, action: requestLand.0 for state 0-
+actions controlled: PASS_ACTION-MAX#
+best score: 0, action: PASS_ACTION-MAX ,for state 0-
+actions uncontrolled: requestLand.0#PASS_ACTION#
+best score: 0, action: PASS_ACTION for state 0-
+actions controlled: descend.0.0#
+best score: -1, action: descend.0.0 ,for state 1-
+actions uncontrolled: PASS_ACTION#
+best score: -1, action: PASS_ACTION for state 1-
+actions uncontrolled: PASS_ACTION#extendFlight.0#requestLand.0#
+best score: -1, action: requestLand.0 for state 0-
+Minimizing (aka uncontrollable) player optimal score: -1
+

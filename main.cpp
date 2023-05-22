@@ -47,22 +47,34 @@ public:
     automatas = _automatas; marked_actions = _marked_actions;
   }
 
+  void clean_stuff() {
+      assert(visited_node_time.empty());
+      //assert(node_action.empty());
+      node_action = {};
+      //assert(node_actions_baned.empty());
+      node_actions_baned = {};
+      //assert(circuit_times.empty());
+      circuit_times = {};
+  }
+
   void solve() { // iterative deepening - todo: transposition tables
     for(int depth=0;depth<=50;depth++) {
-      cerr<<"Analyzing depth "<<depth<<" ..."<<endl;
+      cout<<"Analyzing depth "<<depth<<" ..."<<endl;
       vector< vector<vector< pair<vector<string>, vector<string>> >> > automatas_copy = automatas;
       for(auto&automata:automatas_copy) {
         automatas = {automata};
         vector<int> automata_indexes; for(auto&_:automatas) automata_indexes.push_back(0);
         int minimax_search = compute_minimax_search(automata_indexes, false, depth, INT_MIN, INT_MAX, false, 1);
-        if (minimax_search==1 or minimax_search==INT_MIN) {cerr<<"Minimizing (aka uncontrollable) player score (solved with 1 automata): "<<minimax_search<<endl; exit(0);}
+        clean_stuff();
+        if (minimax_search==1 or minimax_search==INT_MAX) {cout<<"Minimizing (aka uncontrollable) player score (solved with 1 automata): "<<minimax_search<<endl; exit(0);}
       }
       automatas = automatas_copy;
       vector<int> automata_indexes; for(auto&_:automatas) automata_indexes.push_back(0);
       int minimax_search = compute_minimax_search(automata_indexes, false, depth, INT_MIN, INT_MAX, false, 1);
-      if(abs(minimax_search) == 1 or minimax_search==INT_MIN or minimax_search==INT_MAX) { cerr<<"Minimizing (aka uncontrollable) player optimal score: "<<minimax_search<<endl; exit(0);}
+      clean_stuff();
+      if(abs(minimax_search) == 1 or minimax_search==INT_MIN or minimax_search==INT_MAX) { cout<<"Minimizing (aka uncontrollable) player optimal score: "<<minimax_search<<endl; exit(0);}
     }
-    cerr<<"Non conclusive result ..."<<endl;
+    cout<<"Non conclusive result ..."<<endl;
   }
 
   int compute_minimax_search(vector<int>& automata_indexes, bool marked, int depth, int alpha, int beta, bool isMaximizingPlayer, int time, bool pass=false) {
@@ -87,7 +99,7 @@ public:
     random_shuffle(actions.begin(),actions.end());
     if (not isMaximizingPlayer) { // uncontrollable player - minimizing
       int best_score = INT_MAX;
-      if ( find(node_actions_baned[ node_hash ].begin(), node_actions_baned[ node_hash ].end(), PASS_ACTION) == node_actions_baned[ node_hash ].end() )
+      if ( !pass and find(node_actions_baned[ node_hash ].begin(), node_actions_baned[ node_hash ].end(), PASS_ACTION) == node_actions_baned[ node_hash ].end() )
         actions.push_back(PASS_ACTION), random_shuffle(actions.begin(),actions.end());; // uncontrollable player can also do nothing and pass
       for(auto&action:actions) {
         // do action
